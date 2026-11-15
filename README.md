@@ -2,13 +2,16 @@
 
 一个纯静态、中文优先的宝可梦图鉴网站，附带《我的世界》**方可梦（Cobblemon）**整合包攻略板块。
 
+> **在线访问**：<https://dream-alan.github.io/Pokemon-Cobblemon_Wiki-PokeWiki-/>（GitHub Pages，纯静态托管）
+> **桌面版**：见 [发布页](https://github.com/Dream-Alan/Pokemon-Cobblemon_Wiki-PokeWiki-/releases) 的绿色版压缩包，解压即用
+
 - **1025 只宝可梦**全量图鉴（第 1–9 世代），中/英/日三语名称、种族值、属性、特性、进化链、中文图鉴描述
 - **官方原画**（1025 张，512px WebP，可一键切换闪光原画）与 **方可梦像素建模**（1025 只 / 1500 个形态）双视图，模型可在浏览器里实时 3D 旋转、切换形态与闪光，每个形态播放自己的待机动画
 - **获取途径**分三段呈现：方可梦的生成池条件（群系 / 时间 / 光照 / 权重 / 稀有度）、宝可梦正作的野外遭遇（按版本与方式）、建模来源（本体 / Mega Showdown / Z-A / JoStar 大集合）
 - **18 个属性线性图标** + **18×18 属性相克矩阵**，双向解读（攻击方 / 防守方），支持 `/types/?focus=<属性>` 深链接
 - **7 篇方可梦攻略**（入门、捕捉、生成、繁殖进化、战斗、闪光与传说、FAQ 与踩坑）
 - **瑞士国际主义风**视觉系统：纸白底、IKB 蓝单一强调色、零圆角零阴影、12 栏网格、等宽数字
-- 构建产物为 **1039 个静态页**，可丢到任意静态托管，零后端、零运行时费用
+- 构建产物为 **1237 个静态页**，可丢到任意静态托管，零后端、零运行时费用
 
 ### 界面预览
 
@@ -247,6 +250,28 @@ NEXT_PUBLIC_BASE_PATH=/<repo> npm run build     # PowerShell: $env:NEXT_PUBLIC_B
 ```
 
 `next.config.mjs` 会把它作为 `basePath` 注入（同时作用于 `next/link` 与 `asset()` 拼的图片路径）。GitHub Pages 还需在 `out/` 里加一个 `.nojekyll` 空文件。
+
+本项目已部署在 GitHub Pages（`gh-pages` 分支 + 上方子路径构建）：
+
+```bash
+# 1. 用仓库名作为子路径构建（注意结尾不要加斜杠）
+$env:NEXT_PUBLIC_BASE_PATH="/Pokemon-Cobblemon_Wiki-PokeWiki-"; npm run build
+New-Item -ItemType File -Path out/.nojekyll -Force
+
+# 2. 把 out/ 推到 gh-pages 分支（用临时 worktree，避免污染 main）
+$tmp = ".tmp-ghpages"; New-Item -ItemType Directory $tmp | Out-Null; Push-Location $tmp
+git init -q -b gh-pages; git remote add origin <repo-url>; Copy-Item ..\out\* . -Recurse -Force
+New-Item -ItemType File -Name .nojekyll -Force | Out-Null
+git add -A; git commit -q -m "deploy"; git push -f origin gh-pages; Pop-Location
+
+# 3. 仓库 Settings → Pages 选择 Deploy from a branch: gh-pages / (root)
+```
+
+本地可用带前缀的静态服务器验证 Pages 行为：
+
+```bash
+node scripts/serve.mjs out 4311 /Pokemon-Cobblemon_Wiki-PokeWiki-   # 第 4 个参数是子路径前缀
+```
 
 ### 常见托管
 

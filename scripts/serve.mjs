@@ -6,6 +6,8 @@ import url from 'node:url';
 
 const ROOT = path.resolve(process.argv[2] || 'out');
 const PORT = Number(process.argv[3] || 4199);
+// 可选：模拟 GitHub Pages 的子路径前缀，例如 /Pokemon-Cobblemon_Wiki-PokeWiki-
+const BASE = (process.argv[4] || "").replace(/\/+$/, "");
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -24,7 +26,16 @@ const MIME = {
 };
 
 const server = http.createServer((req, res) => {
-  const pathname = decodeURIComponent(url.parse(req.url).pathname);
+  let pathname = decodeURIComponent(url.parse(req.url).pathname);
+  if (BASE) {
+    if (pathname === BASE) pathname = "/";
+    else if (pathname.startsWith(BASE + "/")) pathname = pathname.slice(BASE.length);
+    else {
+      res.writeHead(404, { "content-type": "text/html; charset=utf-8" });
+      res.end("<h1>404 (outside base path)</h1>");
+      return;
+    }
+  }
   let file = path.join(ROOT, pathname);
   if (pathname.endsWith('/')) file = path.join(file, 'index.html');
   if (!file.startsWith(ROOT)) {
@@ -53,5 +64,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`serving ${ROOT} at http://127.0.0.1:${PORT}/`);
+  console.log(`serving ${ROOT} at http://127.0.0.1:${PORT}${BASE || "/"}`);
 });
