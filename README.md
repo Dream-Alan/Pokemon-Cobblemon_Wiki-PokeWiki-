@@ -10,6 +10,26 @@
 - **瑞士国际主义风**视觉系统：纸白底、IKB 蓝单一强调色、零圆角零阴影、12 栏网格、等宽数字
 - 构建产物为 **1039 个静态页**，可丢到任意静态托管，零后端、零运行时费用
 
+### 界面预览
+
+| 首页 | 图鉴列表 |
+| --- | --- |
+| ![首页](docs/preview/preview-home.webp) | ![图鉴列表](docs/preview/preview-pokedex.webp) |
+
+| 详情页（原画 / 建模双视图） | 特殊形态列表 |
+| --- | --- |
+| ![详情页](docs/preview/preview-detail.webp) | ![特殊形态](docs/preview/preview-forms.webp) |
+
+| 形态独立页（超级喷火龙 X） | 双源技能表（点开看威力 / PP / 描述） |
+| --- | --- |
+| ![形态页](docs/preview/preview-form-page.webp) | ![技能](docs/preview/preview-moves.webp) |
+
+| 特殊获取途径（阿尔宙斯） | 方可梦攻略 |
+| --- | --- |
+| ![特殊获取途径](docs/preview/preview-special.webp) | ![攻略](docs/preview/preview-guide.webp) |
+
+移动端（390px，无横向溢出）：![移动端](docs/preview/preview-mobile.webp)
+
 ---
 
 ## 设计语言（v1.1 改版）
