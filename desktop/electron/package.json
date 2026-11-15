@@ -1,0 +1,50 @@
+{
+  "name": "pokewiki",
+  "productName": "PokeWiki",
+  "version": "1.8.1",
+  "description": "宝可梦百科 · 中文图鉴 / 属性 / 方可梦整合包攻略",
+  "main": "main.cjs",
+  "author": "PokeWiki",
+  "license": "UNLICENSED",
+  "private": true,
+  "build": {
+    "appId": "app.pokewiki.desktop",
+    "productName": "PokeWiki",
+    "copyright": "非商业性质的宝可梦资料整理",
+    "directories": {
+      "output": "../../release/desktop"
+    },
+    "files": [
+      "main.cjs",
+      "package.json",
+      "icon.png"
+    ],
+    "extraResources": [
+      {
+        "from": "site.zip",
+        "to": "site.zip"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "icon.png",
+      "artifactName": "PokeWiki-${version}-windows.exe"
+    },
+    "portable": {
+      "artifactName": "PokeWiki-${version}-windows.exe",
+      "requestExecutionLevel": "user"
+    },
+    "compression": "maximum",
+    "asar": true,
+    "publish": null,
+    "electronVersion": "38.8.6",
+    "electronDist": "../../node_modules/electron/dist"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "version": "Cobblemon 1.8.4 + Mega Showdown + Z-A Megas + JoStar 大集合",
+  "species": 1025,
+  "forms": 1500,
+  "models": 1500,
+  "textures": 2720,
+  "animations": 1495,
+  "layerForms": 376,
+  "layerTextures": 651,
+  "poserForms": 34,
+  "implementedFalse": 120,
+  "bySource": {
+    "Cobblemon": {
+      "forms": 1170,
+      "models": 1170
+    },
+    "Mega Showdown": {
+      "forms": 256,
+      "models": 256
+    },
+    "Z-A Megas": {
+      "forms": 9,
+      "models": 9
+    },
+    "JoStar": {
+      "forms": 65,
+      "models": 65
+    }
+  }
+}

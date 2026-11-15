@@ -1,0 +1,39 @@
+# 依赖与构建产物
+node_modules/
+.next/
+out/
+release/
+tmp/
+*.log
+
+# 本地数据缓存（整合包、CSV、jar 解包结果，合计数 GB）
+.cache/
+.npm-cache/
+npm-cache/
+
+# 自动生成的二进制素材（用 `npm run assets` 重新生成，见 README）
+public/art/
+public/art-shiny/
+public/cobblemon/
+public/form-art/
+public/form-oa/
+public/form-oa-shiny/
+desktop/site.zip
+desktop/electron/site.zip
+
+# 开发期截图与临时文件
+shots/
+desktop/electron/debug.log
+
+# 编辑器 / 系统
+.DS_Store
+Thumbs.db
+next-env.d.ts
+tsconfig.tsbuildinfo
+# 调试脚本与临时输出
+.probe/
+out.txt
+err.txt
+.tmp-*
+aud*.txt
+ui*.txt
