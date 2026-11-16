@@ -148,6 +148,33 @@ const VANILLA_ZH = {
   milk_bucket: '牛奶桶',
   honey_bottle: '蜂蜜瓶',
   slime_ball: '黏液球',
+  obsidian: '黑曜石',
+  crying_obsidian: '哭泣的黑曜石',
+  nether_star: '下界之星',
+  end_crystal: '末影水晶',
+  glowstone_dust: '荧石粉',
+  redstone: '红石',
+  quartz: '下界石英',
+  glass_bottle: '玻璃瓶',
+  water_bucket: '水桶',
+  lava_bucket: '熔岩桶',
+  sugar: '糖',
+  egg: '鸡蛋',
+  wheat: '小麦',
+  feather: '羽毛',
+  leather: '皮革',
+  coal: '煤炭',
+  charcoal: '木炭',
+  stick: '木棍',
+  oak_planks: '橡木木板',
+  chest: '箱子',
+  hopper: '漏斗',
+  iron_block: '铁块',
+  gold_block: '金块',
+  diamond_block: '钻石块',
+  lapis_block: '青金石块',
+  redstone_block: '红石块',
+  emerald_block: '绿宝石块',
 }
 function itemName(id) {
   const p = stripNs(id)
@@ -334,26 +361,42 @@ for (const [dirName, dir] of [
     if (!raw) continue
     const key = stripNs(raw)
     if (RECIPE.has(key)) continue
-    const ing = []
+    const parts = new Map()
+    const addPart = (id, c) => {
+      if (!id) return
+      const name = itemName(id)
+      parts.set(name, (parts.get(name) || 0) + (c || 1))
+    }
     if (Array.isArray(j.ingredients)) {
       for (const i of j.ingredients.flat()) {
         if (!i) continue
         const id = typeof i === 'string' ? i : i.item
         const c = typeof i === 'object' ? i.count : 1
-        ing.push(itemName(id) + (c > 1 ? `×${c}` : ''))
+        addPart(id, c)
       }
     }
     if (j.key && typeof j.key === 'object') {
-      const counts = new Map()
-      for (const v of Object.values(j.key)) {
-        const id = typeof v === 'string' ? v : v.item
-        const c = typeof v === 'object' ? v.count || 1 : 1
-        counts.set(itemName(id), (counts.get(itemName(id)) || 0) + c)
+      parts.clear()
+      if (Array.isArray(j.pattern)) {
+        for (const row of j.pattern) {
+          for (const ch of String(row || '')) {
+            if (!ch || ch === ' ') continue
+            const v = j.key[ch]
+            if (!v) continue
+            const id = typeof v === 'string' ? v : v.item
+            const c = typeof v === 'object' ? v.count || 1 : 1
+            addPart(id, c)
+          }
+        }
+      } else {
+        for (const v of Object.values(j.key)) {
+          const id = typeof v === 'string' ? v : v.item
+          const c = typeof v === 'object' ? v.count || 1 : 1
+          addPart(id, c)
+        }
       }
-      ing.length = 0
-      for (const [k, v] of counts) ing.push(k + (v > 1 ? `×${v}` : ''))
     }
-    RECIPE.set(key, { result: itemName(raw), ingredients: [...new Set(ing)], shaped: Boolean(j.pattern), from: dirName })
+    RECIPE.set(key, { result: itemName(raw), parts: [...parts].map(([name, count]) => ({ name, count })), shaped: Boolean(j.pattern), from: dirName })
   }
 }
 function recipeOf(itemId) {
@@ -579,7 +622,7 @@ const M = [
     name: '自由庭院',
     species: [494],
     prep: ['自由通行证', '古老海图'],
-    steps: ['自由通行证可以从**枯寂遗迹（thalic）的宝箱**开出，也可从企业家处购买。', '进岛后在比克提尼锁处使用通行证召唤比克提尼。'],
+    steps: ['自由通行证可以从**枯寂遗迹（thalic）的宝箱**开出（企业家不出售）。', '进岛后在比克提尼锁处使用通行证召唤比克提尼。'],
   },
   {
     struct: 'tree_of_life',
@@ -630,7 +673,7 @@ const M = [
     species: [],
     prep: ['无（纯探索）'],
     steps: ['枯寂平原上的沙漠遗迹，没有专属传说，但宝箱（thalic_chest）会出**自由通行证**、古老海图、复苏石板、光明/黑暗石碎片。', '旁边的枯寂营地与枯寂水井共用 `cove2_barrel` 小桶。'],
-    tips: '想拿比克提尼，这里是除企业家外最稳定的通行证来源。',
+    tips: '想拿比克提尼，这里是最稳定的通行证来源。',
   },
   {
     struct: 'dyna_tree',
@@ -694,7 +737,7 @@ P('## 一、开工前先搞懂三件事')
 P()
 P('### 1. 阿尔宙斯手机')
 P()
-P('模组给了你一台**阿尔宙斯手机**（开局可获得，`企业家`处也能补），里面装着这些东西：')
+P('模组给了你一台**阿尔宙斯手机**，里面装着这些东西：')
 P()
 P('| APP | 作用 |')
 P('| --- | --- |')
@@ -796,7 +839,12 @@ const KEY_ITEMS = [
 for (const key of KEY_ITEMS) {
   const r = RECIPE.get(key)
   if (!r) continue
-  P(`| ${itemName(key)} | ${r.ingredients.join(' + ')}${r.shaped ? '（有序，按 JEI 摆）' : '（无序）'} | |`)
+  const list = (r.parts || [])
+    .filter((p) => p.name)
+    .map((p) => (p.count > 1 ? `${p.name}×${p.count}` : p.name))
+    .join(' + ')
+  if (!list) continue
+  P(`| ${itemName(key)} | ${list} | ${r.shaped ? '有序合成（在工作台按格局摆放）' : '无序合成（材料位置随意）'} |`)
 }
 P()
 
