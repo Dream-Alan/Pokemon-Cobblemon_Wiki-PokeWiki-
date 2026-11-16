@@ -283,6 +283,9 @@ body {
   padding: 0.08rem 0.3rem;
   font-family: var(--font-mono);
   font-size: 0.86em;
+  /* 结构 ID 这种超长单 token 在窄屏要能断行，否则整页横向溢出 */
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .prose-poke pre {
   background: var(--color-ink);

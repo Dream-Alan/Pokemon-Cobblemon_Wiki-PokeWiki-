@@ -9,9 +9,9 @@
 - **官方原画**（1025 张，512px WebP，可一键切换闪光原画）与 **方可梦像素建模**（1025 只 / 1500 个形态）双视图，模型可在浏览器里实时 3D 旋转、切换形态与闪光，每个形态播放自己的待机动画
 - **获取途径**分三段呈现：方可梦的生成池条件（群系 / 时间 / 光照 / 权重 / 稀有度）、宝可梦正作的野外遭遇（按版本与方式）、建模来源（本体 / Mega Showdown / Z-A / JoStar 大集合）
 - **18 个属性线性图标** + **18×18 属性相克矩阵**，双向解读（攻击方 / 防守方），支持 `/types/?focus=<属性>` 深链接
-- **7 篇方可梦攻略**（入门、捕捉、生成、繁殖进化、战斗、闪光与传说、FAQ 与踩坑）
+- **9 篇方可梦攻略**（入门、捕捉、生成、特殊地形、传说遗迹、繁殖进化、战斗、闪光与传说、FAQ 与踩坑），其中「特殊地形与建筑」「传说遗迹全图鉴」由脚本从整合包数据自动生成
 - **瑞士国际主义风**视觉系统：纸白底、IKB 蓝单一强调色、零圆角零阴影、12 栏网格、等宽数字
-- 构建产物为 **1237 个静态页**，可丢到任意静态托管，零后端、零运行时费用
+- 构建产物为 **1238 个静态页**，可丢到任意静态托管，零后端、零运行时费用
 
 ### 界面预览
 
@@ -61,7 +61,7 @@
 | 宝可梦详情 | `/pokedex/<编号>/` | 原画/建模双视图（1500 个形态）、**种族值（拖动等级看 Lv1–100 能力值范围 + 取得基础点数）**、**个体能力值计算（等级 / 性格 / 个体值 / 努力值）**、**特性（点击展开效果说明）**、属性相克、图鉴描述、进化链、**特殊形态入口**、**双源可学习技能**、**方可梦获取途径**、**正作遭遇**、**特殊获取途径（限定结构 / 特殊地图 / 狩猎地带 / 道具 / 化石 / 传说遗迹召唤 / 团体战巢穴 / 野外首领战）**、建模来源、上下篇 |
 | 特殊形态 | `/pokedex/<编号>/form/<形态>/` | 198 个独立条目：超级进化 / 超极巨化 / 原始回归 / 地区形态 / 其他形态（按属性或种族值区分），各自的属性、种族值、特性、**官方原画 + 3D 建模双视图**与双源技能表 |
 | 属性相克 | `/types/` | 18×18 倍率矩阵 + 单属性详解（表头行首均带属性图标） |
-| 攻略列表 | `/guides/` | 8 篇方可梦攻略（含按地点整理的「特殊地形与建筑」） |
+| 攻略列表 | `/guides/` | 9 篇方可梦攻略（含按地点整理的「特殊地形与建筑」与「传说遗迹全图鉴」） |
 | 攻略详情 | `/guides/<slug>/` | Markdown 渲染、表格、右侧目录、上下篇、参考来源 |
 
 交互细节：`/` 全局搜索（`Ctrl + K` 会被浏览器地址栏抢占，故不用）、闪光（Shiny）贴图切换、形态切换（地区形态 / 超级进化 / 超极巨化）、拖拽旋转 3D 模型、待机动画（含眨眼与呼吸）、滚动进视口才加载模型（省电）。
@@ -107,6 +107,7 @@ npm run typecheck    # tsc --noEmit
 | `npm run spawns` | 解析模组 `spawn_pool_world`，生成 `src/data/spawns.json`（群系 / 时间 / 光照 / 权重中文化） |
 | `npm run encounters` | 从 PokeAPI 抓每只宝可梦的野外遭遇，生成 `src/data/encounters.json` |
 | `npm run special` | 汇总「特殊获取途径」：递归读取所有包的 `spawn_pool_world`（含狩猎地带、JoStar 生成包）+ 化石 + 传说遗迹召唤 + 团体战巢穴（cobblemonraiddens）+ 野外首领（cobblemonboss）+ 正作赠送·定点·交换等，生成 `src/data/special.json`，并据此生成攻略 `content/guides/special-locations.md` |
+| `npm run monument-guide` | 从传说遗迹模组解析 37 个世界生成结构、452 个结构 NBT（基座 / 宝箱）、15 张宝箱掉落表、59 个召唤成就、160 条合成配方，生成攻略 `content/guides/legendary-monuments.md`（每座遗迹的奖励、流程与按道具反查） |
 | `npm run abilities` | 特性效果说明：Cobblemon 中文说明 + PokeAPI 中文 / 英文，生成 `src/data/ability-info.json` |
 | `npm run ev-yield` | 取得基础点数（努力值），生成 `src/data/ev-yield.json` |
 | `npm run moves` | 从 PokeAPI 抓招式中文名、属性、威力、PP、说明，生成 `src/data/moves.json` |
@@ -159,7 +160,7 @@ public/form-oa/                特殊形态官方原画（198 张，mega / gmax 
 public/form-oa-shiny/          特殊形态的闪光官方原画
 public/form-art/               特殊形态 3D 渲染缩略图（原画缺失时的回退）
 public/cobblemon/<编号>/       每只宝可梦的全部形态模型 .geo.json、贴图 .png / _shiny.png、anim_<形态>.json
-scripts/                       sync-data / fetch-art / extract-cobblemon / build-spawns / fetch-encounters / build-special / sync-moves / sync-learnsets / build-forms / render-forms / serve / shot / audit / test-ui
+scripts/                       sync-data / fetch-art / extract-cobblemon / build-spawns / fetch-encounters / build-special / build-monument-guide / sync-moves / sync-learnsets / build-forms / render-forms / serve / shot / audit / test-ui
 ```
 
 **体积要点**：`src/data/pokedex.json` 有 648KB，只被服务端页面引用；客户端组件一律从 `src/lib/shared.ts`（只含 18 条属性数据）和 `src/data/index.json`（精简索引）取数，故首屏 JS 不背这份大文件。
