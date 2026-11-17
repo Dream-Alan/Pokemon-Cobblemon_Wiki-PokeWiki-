@@ -1,0 +1,3 @@
+:HL["/Pokemon-Cobblemon_Wiki-PokeWiki-/_next/static/chunks/0863ammfkbuw4.css","style"]
+1:[["children",{"s":"__PAGE__","h":128}]]
+0:{"b":"-86-SSrYesWutWfowt6oL","t":{"t":{"s":"","h":16,"c":"$Q1"}}}

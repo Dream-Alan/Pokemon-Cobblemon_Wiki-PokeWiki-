@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fguides\u002F[slug]","\u002Fpokedex\u002F[id]","\u002Fpokedex\u002F[id]\u002Fform\u002F[key]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

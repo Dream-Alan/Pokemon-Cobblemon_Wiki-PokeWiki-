@@ -1,0 +1,1 @@
+{"layers":[{"name":"emissive","emissive":true,"translucent":true,"fps":6,"loop":true,"frames":["layer_emissive-2_0.png","layer_emissive-2_1.png"]}],"shinyLayers":[{"name":"flame","emissive":true,"translucent":true,"fps":6,"loop":true,"frames":["layer_flame-2_0.png","layer_flame-2_1.png"]}]}

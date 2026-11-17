@@ -1,0 +1,1 @@
+{"format_version":"1.8.0","animations":{"animation.pokemans_landorus.ground_idle":{"loop":true,"bones":{"mainthing":{"position":[0,"0-math.sin(q.anim_time*45*1)*1",0]},"upperbody":{"position":[0,"-2-math.sin(q.anim_time*45*0.8)*1",0]},"tail_1":{"rotation":["-math.sin(q.anim_time*90*1)*2",0,0]}}}},"pokewiki":{"idle":["animation.pokemans_landorus.ground_idle"],"pose":"standing"}}
