@@ -37,3 +37,6 @@ err.txt
 .tmp-*
 aud*.txt
 ui*.txt
+
+.ghpub/
+ghpages-build/
