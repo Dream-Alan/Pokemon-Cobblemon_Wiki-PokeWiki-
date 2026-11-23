@@ -24,6 +24,7 @@ export default function HomePage() {
     { no: '01', zh: '宝可梦图鉴', en: 'Pokédex', href: '/pokedex/', note: `${datasetMeta.pokemon} 条目 · 可筛选` },
     { no: '02', zh: '属性相克表', en: 'Type Chart', href: '/types/', note: '18 × 18 完整倍率' },
     { no: '03', zh: '方可梦攻略', en: 'Cobblemon', href: '/guides/', note: '整合包上手指南' },
+  { no: '04', zh: '对战小工具', en: 'Tools', href: '/tools/', note: '速度线 · 伤害计算' },
   ];
 
   return (
@@ -59,6 +60,9 @@ export default function HomePage() {
               </Link>
               <Link prefetch={false} href="/guides/" className="btn">
                 方可梦攻略
+              </Link>
+              <Link prefetch={false} href="/tools/" className="btn">
+                对战小工具
               </Link>
             </div>
           </div>

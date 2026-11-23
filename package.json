@@ -1,6 +1,6 @@
 {
   "name": "pokewiki",
-  "version": "1.8.2",
+  "version": "1.9.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -31,7 +31,8 @@
     "ev-yield": "node scripts/build-ev-yield.mjs",
     "exe": "node scripts/build-exe.mjs",
     "app": "node scripts/build-app.mjs",
-    "monument-guide": "node scripts/build-monument-guide.mjs"
+    "monument-guide": "node scripts/build-monument-guide.mjs",
+    "stats": "node scripts/build-stats.mjs"
   },
   "dependencies": {
     "next": "16.4.6",

@@ -13,6 +13,7 @@ const NAV = [
   { href: '/pokedex/', label: '图鉴', no: '01' },
   { href: '/types/', label: '属性', no: '02' },
   { href: '/guides/', label: '攻略', no: '03' },
+  { href: '/tools/', label: '工具', no: '04' },
 ];
 
 export function SiteHeader() {
