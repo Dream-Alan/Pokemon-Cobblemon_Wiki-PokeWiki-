@@ -1,0 +1,27 @@
+2:"$Sreact.fragment"
+3:"/Pokemon-Cobblemon_Wiki-PokeWiki-/_next/static/chunks/1ufbtw0oxd8zv.js"
+4:I[39756,["$3"],"default"]
+5:I[37457,["$3"],"default"]
+a:"$Sreact.suspense"
+b:"/Pokemon-Cobblemon_Wiki-PokeWiki-/_next/static/chunks/2aj5a_0f87f71.js"
+c:I[86851,["$3","$b"],"TypeMatrix"]
+d:I[97367,["$3"],"OutletBoundary"]
+10:"ViewportBoundary"
+11:I[97367,["$3"],"$10"]
+12:"MetadataBoundary"
+13:I[97367,["$3"],"$12"]
+14:I[27201,["$3"],"IconMark"]
+7:X
+7:C
+8:X
+9:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$2","c",{"children":[["$","div",null,{"className":"container-page py-8","children":[["$","section",null,{"className":"border-b border-line pb-5","children":[["$","div",null,{"className":"flex flex-wrap items-end justify-between gap-3","children":[["$","div",null,{"children":[["$","span",null,{"className":"label","children":"02 — Types / 属性"}],["$","h1",null,{"className":"display mt-2 text-[clamp(2rem,5vw,3.2rem)] text-ink","children":"属性相克"}]]}],["$","div",null,{"className":"num text-[11px] leading-relaxed text-muted","children":[["$","div",null,{"children":"18 TYPES"}],["$","div",null,{"children":[1025," POKÉMON"]}]]}]]}],["$","p",null,{"className":"mt-3 max-w-2xl text-[13px] leading-relaxed text-ink-dim","children":["18 种属性的完整相克关系。点选任一属性，查看它作为",["$","span",null,{"className":"mx-1 border-b border-line px-0.5","children":"攻击方"}],"与",["$","span",null,{"className":"mx-1 border-b border-line px-0.5","children":"防守方"}],"时的倍率；下方矩阵可整体对照。"]}]]}],["$","div",null,{"className":"mt-6","children":["$","$a",null,{"fallback":["$","div",null,{"className":"border border-line-soft bg-paper p-8 text-[12px] text-muted","children":"加载属性数据…"}],"children":["$","$Lc",null,{}]}]}]]}],[["$","script","script-0",{"src":"/Pokemon-Cobblemon_Wiki-PokeWiki-/_next/static/chunks/2aj5a_0f87f71.js","async":true}]],["$","$Ld",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]]}],"p":"$@f","v":null,"s":"$8"}}]]
+1:[["children",{"s":"types","h":64,"d":{"r":["$","$2","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","template":["$","$L5",null,{}]}]]}],"p":"$@6","v":"$7","s":"$8"},"c":"$Q9"}]]
+0:{"t":{"t":{"s":"","h":16,"c":"$Q1"},"h":{"r":["$","$2","h",{"children":[null,["$","$L11",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#f4f3ef"}],["$","meta","3",{"name":"color-scheme","content":"light"}]]}],["$","$L13",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$a",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"属性相克表 · 18 种属性完整倍率 · 宝可梦百科"}],["$","meta","1",{"name":"description","content":"宝可梦 18 种属性的完整相克矩阵：攻击倍率、防守弱点、抵抗与免疫，支持单属性筛选查看。"}],["$","meta","2",{"name":"application-name","content":"宝可梦百科"}],["$","meta","3",{"name":"author","content":"宝可梦百科"}],["$","meta","4",{"name":"keywords","content":"宝可梦,图鉴,Pokémon,方可梦,Cobblemon,属性相克,种族值,进化链"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","link","6",{"rel":"icon","href":"/Pokemon-Cobblemon_Wiki-PokeWiki-/icon.svg?icon.1bimtwpnoqi09.svg","sizes":"any","type":"image/svg+xml"}],["$","$L14","7",{}]]}]}],null]}],null]}],"p":"$@15","v":null,"s":"$8"}},"a":"$@16","u":"$@17","b":"XD6MZuoZBzNnl3VXPqwV0"}
+e:null
+17:true
+8:300
+8:C
+16:0
+6:"$undefined"
+15:"$undefined"
+f:"$undefined"

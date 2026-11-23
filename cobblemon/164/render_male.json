@@ -1,0 +1,1 @@
+{"layers":[{"name":"emissive","emissive":false,"translucent":false,"fps":0,"loop":true,"frames":["layer_emissive.png"]}],"shinyLayers":[{"name":"emissive","emissive":false,"translucent":false,"fps":0,"loop":true,"frames":["layer_emissive-2.png"]}],"poser":"noctowl","pose":"standing","parts":[{"part":"wings_open","isVisible":false},{"part":"wings_closed","isVisible":true}]}

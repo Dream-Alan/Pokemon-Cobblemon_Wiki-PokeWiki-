@@ -1,0 +1,6 @@
+:HL["/Pokemon-Cobblemon_Wiki-PokeWiki-/_next/static/chunks/0kannihct94vj.css","style"]
+:HL["/Pokemon-Cobblemon_Wiki-PokeWiki-/form-oa/531-mega.webp","image"]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":{"n":"id","t":"d","k":"531","s":[]},"h":65632,"c":"$Q3"}]]
+1:[["children",{"s":"pokedex","h":131136,"c":"$Q2"}]]
+0:{"b":"XD6MZuoZBzNnl3VXPqwV0","t":{"t":{"s":"","h":131088,"c":"$Q1"}}}
