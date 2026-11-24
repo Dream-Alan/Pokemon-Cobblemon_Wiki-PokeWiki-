@@ -32,7 +32,8 @@
     "exe": "node scripts/build-exe.mjs",
     "app": "node scripts/build-app.mjs",
     "monument-guide": "node scripts/build-monument-guide.mjs",
-    "stats": "node scripts/build-stats.mjs"
+    "stats": "node scripts/build-stats.mjs",
+    "portable": "node scripts/build-portable.mjs"
   },
   "dependencies": {
     "next": "16.4.6",

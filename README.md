@@ -120,6 +120,7 @@ npm run typecheck    # tsc --noEmit
 | `npm run form-art` | 用无头浏览器渲染特殊形态的 3D 缩略图到 `public/form-art/`（官方原画缺失时的回退） |
 | `npm run shiny-art` | 下载闪光官方原画（1025 只基础形态 + 198 个特殊形态）到 `public/art-shiny/`、`public/form-oa-shiny/`，并生成 `src/data/shiny-art.json` 清单 |
 | `npm run assets` | 依次执行 sync + art + cobblemon + spawns + encounters + moves + learnsets + forms + form-oa + shiny-art |
+| `npm run portable` | 用 `out/` 替换绿色版里的 `resources/site.zip`，重新产出 `release/PokeWiki-<版本>-portable.zip`（不改 Electron 外壳） |
 | `npm run preview` | 用零依赖服务器预览 `out/`（端口 4199） |
 | `npm run shot` | 无头浏览器截图到 `shots/` |
 | `npm run audit` | 双视口检查横向溢出与破图 |
